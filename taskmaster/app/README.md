@@ -46,3 +46,9 @@
 - ![main activity](/taskmaster/screenshots/lab27_taskDetail.png)
 
 - took me an hour to do and another 2 hours to research and come up with design.
+
+## Feature Tasks
+### 1 RecyclerView
+- allow to view a task, and usersettings
+- ![main activity](/taskmaster/screenshots/lab28_addList.png)
+- took me an hour to do and another 2 hours to research and come up with design.
