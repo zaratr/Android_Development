@@ -1,4 +1,4 @@
-package com.android.internal.taskmaster;
+package com.android.internal.taskmaster.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.android.internal.taskmaster.R;
 
 public class SaveSettingsActivity extends AppCompatActivity {
 
@@ -27,10 +29,8 @@ public class SaveSettingsActivity extends AppCompatActivity {
         String userNickname = preferences.getString(USER_NICKNAME_TAG, "");
         if(!userNickname.isEmpty())
         {
-            Log.i("***********************************", "HERE: ");
             EditText userNicknameEdited = findViewById(R.id.editUsernameBox);
             userNicknameEdited.setText(userNickname);
-            Log.i("-> " + userNickname,"<- ***********************************");
         }
 
 
@@ -43,10 +43,7 @@ public class SaveSettingsActivity extends AppCompatActivity {
                 SharedPreferences.Editor preferenceEditor = preferences.edit();
                 EditText userNicknameText = findViewById(R.id.editUsernameBox);
                 String userUsernameString = userNicknameText.getText().toString();
-                Log.i("submitted: -> :" + userUsernameString ,"<- submitted");
-                Log.i("submitted: -> :" + USER_NICKNAME_TAG ,"<- submitted");
                 preferenceEditor.putString(USER_NICKNAME_TAG, userUsernameString);
-                Log.i("submitted: -> :" + USER_NICKNAME_TAG ,"<- submitted");
                 preferenceEditor.apply();
             }
         });

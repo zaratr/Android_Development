@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EDEDED"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <TextView
         android:id="@+id/textMainUsernameView"
@@ -104,5 +104,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_manage" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/productRecyclerView"
+        android:layout_width="59dp"
+        android:layout_height="210dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="299dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

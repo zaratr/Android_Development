@@ -1,8 +1,10 @@
-package com.android.internal.taskmaster;
+package com.android.internal.taskmaster.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.android.internal.taskmaster.R;
 
 public class TaskDetail extends AppCompatActivity {
 

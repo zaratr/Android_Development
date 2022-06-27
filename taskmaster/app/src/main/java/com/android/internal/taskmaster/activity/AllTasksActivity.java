@@ -1,4 +1,4 @@
-package com.android.internal.taskmaster;
+package com.android.internal.taskmaster.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import com.android.internal.taskmaster.R;
 
 public class AllTasksActivity extends AppCompatActivity {
 

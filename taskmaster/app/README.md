@@ -31,3 +31,18 @@
 
 - took me an hour to do and another 2 hours to research and come up with design.
 
+
+## Feature Tasks
+### 1 Homepage
+- allow to view a task, and usersettings
+- ![main activity](/taskmaster/screenshots/lab27_main.png)
+
+### 2 user settings
+- allow client to add settings
+- ![main activity](/taskmaster/screenshots/lab27_settings.png)
+-
+### 3 task detail
+- allow user to view a task
+- ![main activity](/taskmaster/screenshots/lab27_taskDetail.png)
+
+- took me an hour to do and another 2 hours to research and come up with design.

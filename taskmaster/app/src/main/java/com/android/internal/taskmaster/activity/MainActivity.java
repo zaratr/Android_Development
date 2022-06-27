@@ -1,30 +1,48 @@
-package com.android.internal.taskmaster;
+package com.android.internal.taskmaster.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.android.internal.taskmaster.R;
+import com.android.internal.taskmaster.adapter.TaskListRecyclerReviewAdapter;
+import com.android.internal.taskmaster.models.Task;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
+    public static final String TASK_PARAGRAPH_TAG = "BODY";
     SharedPreferences preferences;
+    private TaskListRecyclerReviewAdapter adapter;
     //TaskListRecyclerReviewAdapter adapter;
 
+
+    /**
+     * OnCreate - Renders on start all attributes
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //callling the action bar
+        /**
+         * BackButtonOption 1 - allows overriding for back button. part 2 below
+         * callling the action bar
+         */
         ActionBar actionBar = getSupportActionBar();
         //showing the back button in action bar
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -33,10 +51,14 @@ public class MainActivity extends AppCompatActivity {
 
         setUpSettingsImageView();
         buttonGoTo();
-        //setUpTaskListRecycleView();
+        setUpTaskListRecycleView();
 
     }
 
+
+    /**
+     * OnResume - reRenders page with newly typed attributes to text
+     */
     @Override
     protected  void onResume(){
 
@@ -48,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Helper function Button Creation -  to create button and listeners
+     */
 
     private void buttonGoTo()
     {
@@ -76,6 +101,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Creates a image button and simlilar to button on creation
+     */
+
     private void setUpSettingsImageView(){
 
         //Button three = settings
@@ -87,8 +116,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Recycle View
+     */
+    private void setUpTaskListRecycleView() {
+        RecyclerView taskListRecycleReview = (RecyclerView) findViewById(R.id.productRecyclerView);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
 
-    // this even will enable the back function to the button on press
+        taskListRecycleReview.setLayoutManager(layoutManager);
+
+        List<Task> taskList = new ArrayList<Task>();
+        taskList.add(new Task("Peace", "clothes and blanket"));
+        taskList.add(new Task("Prosperity", "drop a blanket on dem"));
+        taskList.add(new Task("Inclusivity", "drop a blanket on dem"));
+        adapter = new TaskListRecyclerReviewAdapter(taskList, this);
+        taskListRecycleReview.setAdapter(adapter);
+        /*
+         */
+    }
+
+
+
+
+    /**
+     * BackButton part 2- this even will enable the back function to the button on press
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item)
     {
