@@ -8,6 +8,21 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textMainUsernameView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:textAlignment="center"
+        android:textSize="21sp"
+
+        app:layout_constraintBottom_toTopOf="@+id/homeNickName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/homeNickName"
         android:layout_width="90dp"
         android:layout_height="26dp"
         android:layout_marginTop="70dp"
@@ -68,5 +83,26 @@
         app:srcCompat="@android:drawable/ic_delete"
         tools:ignore="ImageContrastCheck"
         tools:srcCompat="@tools:sample/avatars[2]" />
+
+    <Button
+        android:id="@+id/buttonTaskDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="158dp"
+        android:layout_marginBottom="74dp"
+        android:text="@string/task_detail"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/settingsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="39dp"
+        android:contentDescription="@string/imagebuttontosettings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_manage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

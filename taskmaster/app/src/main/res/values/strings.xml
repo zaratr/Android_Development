@@ -13,4 +13,12 @@
     <string name="all_task">All Task</string>
     <string name="my_tasks">My Tasks</string>
     <string name="todo">TODO</string>
+    <string name="temp">Temp</string>
+    <string name="username">Username</string>
+    <string name="save">Save</string>
+    <string name="stringUsernameSaveSetting">Username:</string>
+    <string name="task_detail">Task Detail</string>
+    <string name="imagebuttontosettings">imageButtonToSettings</string>
+    <string name="textUsernameView">UserName</string>
+    <string name="textUsernameViewChange">"Username: %1$s</string>
 </resources>
