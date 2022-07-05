@@ -16,7 +16,7 @@
         android:layout_marginEnd="211dp"
         android:layout_marginBottom="98dp"
         android:background="#F6F6F6"
-        android:text="Add Task"
+        android:text="@string/stringTaskTitle"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/stringTaskTitle"
@@ -33,11 +33,13 @@
         android:layout_marginBottom="92dp"
         android:background="@android:color/background_light"
         android:ems="10"
-        android:hint="My Task"
+        android:hint="@string/my_task"
         android:inputType="textPersonName"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@+id/stringTaskDescription"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/stringTaskTitle"
@@ -45,7 +47,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="91dp"
         android:layout_marginEnd="259dp"
-        android:text="Task Title"
+        android:text="@string/edit_task_title"
+        android:textColor="#616161"
         app:layout_constraintBottom_toTopOf="@+id/editTaskTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -59,11 +62,13 @@
         android:layout_marginBottom="76dp"
         android:background="@color/white"
         android:ems="10"
-        android:hint="Do Something"
+        android:hint="@string/do_something"
         android:inputType="textPersonName"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@+id/buttonAddTask"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/stringTaskDescription"
@@ -71,7 +76,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="91dp"
         android:layout_marginEnd="216dp"
-        android:text="Task Description"
+        android:text="@string/edit_text_string_task_description"
+        android:textColor="#616161"
         app:layout_constraintBottom_toTopOf="@+id/editTextDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -83,7 +89,8 @@
         android:layout_marginStart="92dp"
         android:layout_marginEnd="243dp"
         android:layout_marginBottom="24dp"
-        android:text="Total task: 0"
+        android:text="@string/total_task"
+        android:textColor="#616161"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -95,7 +102,7 @@
         android:layout_marginStart="87dp"
         android:layout_marginEnd="216dp"
         android:layout_marginBottom="80dp"
-        android:text="Add Task"
+        android:text="@string/name_add_task_button"
         app:layout_constraintBottom_toTopOf="@+id/stringTotalTask"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -105,13 +112,22 @@
         android:id="@+id/spinnerTaskCategoryInput"
         android:layout_width="391dp"
         android:layout_height="wrap_content"
-        />
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/taskTeamSpinner"
-        android:layout_height="391dp"
         android:layout_width="wrap_content"
-        />
+        android:layout_height="391dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="340dp"
+
+        android:contentDescription="@string/stufflist"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

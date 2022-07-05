@@ -10,12 +10,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.amplifyframework.api.graphql.model.ModelMutation;
+import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Task;
+import com.amplifyframework.datastore.generated.model.Team;
 import com.android.internal.taskmaster.R;
 import com.android.internal.taskmaster.adapter.TaskListRecyclerReviewAdapter;
 
@@ -44,6 +48,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        Team contact1 = Team.builder()
+//                .name("lame")
+//                .build();
+//        Amplify.API.mutate(
+//                ModelMutation.create(contact1),
+//                successResponse -> Log.i(TAG, "HomeActivity.onCreate(): made a contact successfully"),  // success callback
+//                failureResponse -> Log.i(TAG, "HomeActivity.onCreate(): contact failed with this response: " + failureResponse)  // failure callback
+//        );
+
 
         /**
          * BackButtonOption 1 - allows overriding for back button. part 2 below
