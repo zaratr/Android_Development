@@ -7,10 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.amplifyframework.datastore.generated.model.Task;
 import com.android.internal.taskmaster.R;
 import com.android.internal.taskmaster.activity.MainActivity;
 import com.android.internal.taskmaster.activity.TaskDetail;
-import com.android.internal.taskmaster.models.Task;
 
 import java.util.List;
 
@@ -57,7 +57,7 @@ public class TaskListRecyclerReviewAdapter extends RecyclerView.Adapter<TaskList
         View taskViewHolder = holder.itemView;
         taskViewHolder.setOnClickListener(v ->{
             Intent goToTaskDetailIntent = new Intent(callingActivity, TaskDetail.class);
-            goToTaskDetailIntent.putExtra(MainActivity.TASK_PARAGRAPH_TAG, taskName);
+            goToTaskDetailIntent.putExtra(MainActivity.TASK_BODY, taskName);
             callingActivity.startActivity(goToTaskDetailIntent);
         });
     }

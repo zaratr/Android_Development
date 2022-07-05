@@ -101,4 +101,11 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
+    <Spinner
+        android:id="@+id/spinnerTaskCategoryInput"
+        android:layout_width="391dp"
+        android:layout_height="wrap_content"
+        />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

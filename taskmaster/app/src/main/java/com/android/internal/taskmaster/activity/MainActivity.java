@@ -15,18 +15,24 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.amplifyframework.datastore.generated.model.Task;
 import com.android.internal.taskmaster.R;
 import com.android.internal.taskmaster.adapter.TaskListRecyclerReviewAdapter;
-import com.android.internal.taskmaster.models.Task;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String TASK_PARAGRAPH_TAG = "BODY";
+    public static final String TASK_ID = "Task";
+    public static final String TASK_TITLE = "Task";
+    public static final String TASK_BODY = "Task";
+    public static final String TASK_STATE = "Task";
+    public static final String TASK_SIZE = "Task";
+    public static final String TAG = "homeactivity";
     SharedPreferences preferences;
     private TaskListRecyclerReviewAdapter adapter;
+    List<Task> tasks = null;
     //TaskListRecyclerReviewAdapter adapter;
 
 
@@ -49,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
+
+
+        tasks =  new ArrayList<>();
+
         setUpSettingsImageView();
         buttonGoTo();
         setUpTaskListRecycleView();
@@ -66,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
     String userNameUpdater = preferences.getString(SaveSettingsActivity.USER_NICKNAME_TAG, "Nothing in name tag");
     TextView userNameTextHome = findViewById(R.id.homeNickName);
     userNameTextHome.setText(userNameUpdater);
+
+    //tasks.clear();
+    adapter.notifyDataSetChanged();
 
     }
 
@@ -125,14 +138,12 @@ public class MainActivity extends AppCompatActivity {
 
         taskListRecycleReview.setLayoutManager(layoutManager);
 
-        List<Task> taskList = new ArrayList<Task>();
-        taskList.add(new Task("Peace", "clothes and blanket"));
-        taskList.add(new Task("Prosperity", "drop a blanket on dem"));
-        taskList.add(new Task("Inclusivity", "drop a blanket on dem"));
-        adapter = new TaskListRecyclerReviewAdapter(taskList, this);
+//        List<Task> taskList = new ArrayList<Task>();
+//        taskList.add(new Task("Peace", "clothes and blanket"));
+//        taskList.add(new Task("Prosperity", "drop a blanket on dem"));
+//        taskList.add(new Task("Inclusivity", "drop a blanket on dem"));
+        adapter = new TaskListRecyclerReviewAdapter(tasks, this);
         taskListRecycleReview.setAdapter(adapter);
-        /*
-         */
     }
 
 
