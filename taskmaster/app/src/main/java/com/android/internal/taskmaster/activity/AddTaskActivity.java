@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amplifyframework.api.graphql.model.ModelMutation;
+import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Task;
 import com.amplifyframework.datastore.generated.model.Team;
@@ -27,7 +28,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import java.util.stream.Collectors;
 
 
 public class AddTaskActivity extends AppCompatActivity {
@@ -63,6 +63,33 @@ public class AddTaskActivity extends AppCompatActivity {
         status.add(assigned);
         status.add(complete);
 
+        teamSpinner = findViewById(R.id.taskTeamSpinner);
+        Amplify.API.query(
+                ModelQuery.list(Team.class),
+                success -> {
+                    Log.i(TAG, "Read Teams successfully!");
+                    ArrayList<String> teamNames = new ArrayList<>();
+
+                    for (Team team : success.getData()) {
+                        teams.add(team);
+                        teamNames.add(team.getName());
+                    }
+                    teamFuture.complete(teams);
+
+                    runOnUiThread(() -> {
+                        teamSpinner.setAdapter(new ArrayAdapter<>(
+                                this,
+                                androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+                                teamNames));
+                    });
+                },
+                failure -> {
+                    teamFuture.complete(null);
+                    Log.e(TAG, "Did not read teams successfully");
+                }
+        );
+
+
 
         Spinner taskCategorySpinner = findViewById(R.id.spinnerTaskCategoryInput);
         taskCategorySpinner.setAdapter(new ArrayAdapter<>(
@@ -95,8 +122,6 @@ public class AddTaskActivity extends AppCompatActivity {
             String selectedTeamString = teamSpinner.getSelectedItem().toString();
             Team selectedTeam = teams.stream().filter(team -> team.getName().equals(selectedTeamString)).findAny().orElseThrow(RuntimeException::new);
 
-            ArrayList<String> x = new ArrayList<>(Arrays.asList("1", "3"));
-            x.stream().filter(s -> !s.isEmpty());
 
 
             Task newTask = Task.builder()
